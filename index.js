@@ -54,5 +54,86 @@ CODE OUTPUT
 
 //concetanate with plus operator
 ourName = "I come first. " + "I come second.";
-myStr = ourName + "This is the end";
+myStr = ourName + "This is the end ";
 console.log(myStr);
+
+ourName = "freeCodeCamp";
+var ourStr = "Our name is " + ourName;
+console.log(ourStr);
+
+myStr = "freecodeCamp is ";
+ourStr = "awesome!";
+myStr += ourStr;
+console.log(myStr);
+
+//find length of string
+var firstName = "Ada";
+var firstNameLength = 0;
+firstNameLength = firstName.length;
+
+//bracket notation to find the first character of a string
+var firstLetterofFirstName = firstName[0];
+var secondLetterofFirstName = firstName[1];
+
+//string immutability
+//strings cannot be altered once created
+//they can still be changed
+//myStr[0] = "H" gives error
+myStr = "Hello world";
+
+//last letter of a string
+var lastLetterofFirstName = firstName[firstNameLength - 1];
+
+//word blanks
+function wordBlanks(myNoun, myAdjective, myVerb, myAdverb){
+    var result = "";
+    result += "The " + myAdjective + myNoun + myVerb + myAdverb;
+    return result;
+}
+console.log(wordBlanks("dog","big","ran","quickly"));
+
+//arrays
+var ourArray = ["John",23];
+
+ourArray = [["the universe",42],["everything",101010]]
+
+var myArray = [1,2,3];
+myArray[1] = 66;
+console.log(ourArray[0][0]); //gives "the universe"
+
+//manipulate arrays with psuh()
+ourArray.push(["happy",24]);
+console.log(ourArray);
+
+//remove with pop() (and add to the variable)
+var removedFromArray = myArray.pop();
+console.log(removedFromArray);
+console.log(myArray);
+
+//shift() removes first element instead of final element
+
+//unshift() similar to push but adds to the beginning of the array
+
+//functions
+function ourReusableCode(){
+    console.log("inside the first function");
+}
+ourReusableCode();
+
+function ourFuncWithArgs(a,b){
+    console.log(a-b);
+}
+ourFuncWithArgs(10,5);
+
+//global variables
+var myGlobal = 10;
+function fun2(){
+    var output = "";
+    if(typeof myGlobal != "undefined"){
+        output += "myGlobal: " + myGlobal;
+    }
+    console.log(output);
+}
+fun2();
+
+//Stand in Line
