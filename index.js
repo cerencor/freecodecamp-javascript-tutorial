@@ -137,3 +137,179 @@ function fun2(){
 fun2();
 
 //Stand in Line
+//in computer science a queue is an abstract data structure where items are kept in order.
+//new items can be added to the back of the queue and old items are taken off from the fron of the queue
+function nextInLine(arr,item){
+    arr.push(item);
+    return arr.shift();
+}
+var testArr = [1,2,3,4,5];
+
+console.log("Before: " + JSON.stringify(testArr)); //JSON.stringify is just a way to change an array into a string that can easily be printed out to the string
+console.log(nextInLine(testArr,6));
+console.log("After: " + JSON.stringify(testArr));
+
+//strict equality sign
+/* 
+3 == '3' attempts to convert both into same type and checks
+3 === 3 does not do the type conversion
+3 === 3 is true
+3 === '3' is false
+3 == 3 is true
+3 == '3' is also true
+*/
+
+//strict inequality
+// if(val !== 17) will not convert types
+
+//if - else if - else
+function orderMyLogic(val){
+    if(val < 10){
+        return "Less than 10";
+    }else if (val < 5){
+        return "Less than 5";
+    }else{
+        return "Greater than or equal to 10";
+    }
+}
+
+//switch statements
+function caseInSwitch(val){
+    var answer = "";
+    switch(val){
+        case 1:
+            answer = "alpha";
+            break;
+        case 2:
+            answer = "beta";
+            break;
+        case 3:
+            answer = "gamma";
+            break;
+        case 4:
+            answer = "delta";
+            break;    
+    }
+    return answer;
+}
+console.log(caseInSwitch(2));
+
+function switchOffStuff(val){
+    var answer = "";
+    switch(val){
+        case "a":
+            answer = "apple";
+            break;
+        case "b":
+            answer = "bird";
+            break;
+        case "c":
+            answer = "cat";
+            break;   
+        default:
+            answer = "stuff";
+            break;
+    }
+    return answer;
+}
+console.log(switchOffStuff(2));
+
+function sequentialSizes(val){
+    var answer = "";
+    switch(val){
+        case 1:
+        case 2:
+        case 3:
+            answer = "Low";
+            break;
+        case 4:
+        case 5:
+        case 6:
+            answer = "mid";
+            break;
+        case 7:
+        case 8:
+        case 9:
+            answer = "high";
+            break;
+    }
+    return answer;
+}
+console.log(sequentialSizes(8));
+
+//Build javascript objects
+var ourDog = { //object is ourDog
+    //properties: values
+    "name": "Camper",
+    "legs": 4,
+    "tails": 1,
+    "friends": ["everything!"]
+};
+
+var myDog = {
+    "name": "Kurt",
+    "legs": 3,
+    "tails": 1,
+    "friends": ["me!"]
+};
+
+console.log(myDog);
+
+//dot notation
+var myDog = {
+    "hat": "ballcap",
+    "shirt": "jersey",
+    "shoes": "cleats"
+};
+var hatValue = myDog.hat;
+var shirtValue = myDog.shirt;
+console.log(hatValue);
+
+//bracket notation
+//you can use bracket notation anytime
+//but it is required if the property name has a space in it
+var testObj = {
+    "an entree": "hamburger",
+    "my side": "veggies",
+    "the drink": "water"
+};
+var entreeValue = testObj["an entree"];
+var drinkValue = testObj['the drink'];
+console.log(entreeValue);
+
+//variables
+var testObj = {
+    12: "namath",
+    16: "montana"
+};
+var playerNumber = 16;
+var player = testObj[playerNumber];
+console.log(player);
+
+//updating object properties
+//we can use dot notation
+ourDog.name = "Happy Camper";
+console.log(ourDog);
+
+//add properties to object
+ourDog['bark'] = "woof"; 
+
+//delete property
+delete ourDog.bark;
+
+//using objects for lookups
+function phoneticLookup(val){
+    var result = "";
+
+    var lookup = {
+        "alpha": "Adams",
+        "bravo": "Boston",
+        "charlie": "Chicago",
+        "delta": "Denver"
+    };
+    result = lookup[val];
+    return result;
+}
+console.log(phoneticLookup("charlie"));
+
+//testing objects for properties
