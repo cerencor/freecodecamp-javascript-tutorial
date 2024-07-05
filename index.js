@@ -313,3 +313,177 @@ function phoneticLookup(val){
 console.log(phoneticLookup("charlie"));
 
 //testing objects for properties
+var myObj = {
+    gift: "pony",
+    pet: "kitten",
+    bed: "sleigh"
+};
+function checkObj(checkProp){
+    if(myObj.hasOwnProperty(checkProp)){
+        return myObj[checkProp];
+    }else{
+        return "Not found";
+    }
+}
+console.log(checkObj("gift"));
+
+//manipulating complex objects
+var myMusic = [
+    {
+        "artist": "Billy Joel",
+        "title": "Piano Man",
+        "release_year": 1973,
+        "formats": ["CD","8T","LP"],
+        "gold": true
+    },
+    {
+        "artist": "Beau Carnes",
+        "title": "Cereal Man",
+        "release_year": 2003,
+        "formats": ["Youtube video"]
+    }
+];
+
+//nested objects
+var myStorage = {
+    "car": {
+        "inside": {
+            "glove box": "maps",
+            "passenger seat": "crumbs"
+        },
+        "outside": {
+            "trunk": "jack"
+        }
+    }
+};
+var gloveBoxContents = myStorage.car.inside["glove box"];
+
+console.log(gloveBoxContents);
+
+//accessing nested arrays
+var myPlants = [
+    {
+        type: "flowers",
+        list: ["rose","tulip","dandelion"]
+    },
+    {
+        type: "trees",
+        list: ["fir", "pine", "birch"]
+    }
+];
+
+var secondTree = myPlants[1].list[1];
+console.log(secondTree);
+
+//note: collection[id][prop] = collection[id][prop] || [];
+//if collection[id][prop] already exits we're going to set to equal to itself
+//but if it doesnt exist we are going to set it to empty array
+
+//for and while are exactly like C
+
+//return contacts[i][prop] || "no such property"
+//return contacts[i][prop] if it exists, otherwise return no such property
+
+//random decimal number generation
+function randomFunction(){
+    return Math.random(); //will return a number between 0 and 1 but it will not be 1 (but it can be 0)
+}
+console.log(randomFunction());
+
+//generate random whole numbers
+var randomNumberBetween0and19 = Math.floor(Math.random() * 20);
+//floor rounds down to the nearest whole number
+
+//get a random number between min and max ranges
+function ourRandomRange(ourMin, ourMax){
+    return Math.floor(Math.random() * (ourMax - ourMin + 1)) + ourMin;
+}
+
+//use the parseInt function
+function convertToInteger(str){
+    return parseInt(str);
+}
+console.log(convertToInteger("52"));
+
+function convertToIntegerBinary(str){
+    return parseInt(str, 2); //passing 2 to specify base 2 so the computer nows this is a binary number
+}
+console.log(convertToIntegerBinary("10011"));
+
+//ternary operator
+//condition ? statement-if-true : statement-if-false;
+function checkSign(num){
+    return (num > 0) ? "positive" : (num < 0) ? "negative" : "zero";
+}
+
+//"use strict"; is used to catch common mistake errors
+//a lot of peaople use it at the top of the code to warn them
+
+//const has all the features of let but it is read only
+//var is global
+
+//you cannot reassign a variable declared with const
+//but you can mutate an array declared with const
+const s = [5, 7, 2];
+function editInPlace(){
+    "use strict";
+    //s = [2, 5, 7]; //this will get an error
+    s[0] = 2;
+    s[1] = 5;
+    s[2] = 7;
+    s[3] = 9;
+}
+editInPlace();
+console.log(s);
+
+//prevent object mutation
+function freezeObj(){
+    "use strict";
+    const MATH_CONSTANTS = {
+        PI: 3.14 //right now this can be changed
+    };
+    
+    Object.freeze(MATH_CONSTANTS); //now pi cannot be changed
+
+    try{
+        MATH_CONSTANTS.PI = 99;
+    } catch(ex){
+        console.log(ex);
+    }
+    return MATH_CONSTANTS.PI;
+}
+
+const PI = freezeObj();
+
+console.log(PI);
+
+//use arrow functions to write concise anonymous functions
+var magic = function() {
+    return new Date();
+};
+
+var magic = () => {
+    return new Date();
+};
+
+const magic = () => new Date(); //this is the same as the first function
+
+var myConcat = function(arr1, arr2){
+    return arr1.concat(arr2);
+};
+console.log(myConcat([1, 2], [3, 4, 5]));
+var myConcat = (arr1, arr2) => arr1.concat(arr2);
+const myConcat = (arr1, arr2) => arr1.concat(arr2);//adding const to make it nicer
+console.log(myConcat([1, 2], [3, 4, 5]))
+//these myConcat functions are all the same
+
+//map and filter
+const realNumberArray = [4, 5.6, -9.8, 6, -2];
+
+const squareList = (arr) => {
+    const squaredIntegers = arr.filter(num => Number.isInteger(num) && (num > 0)).map(x => x*x);
+    return squaredIntegers;
+}
+
+const squaredIntegers = squareList(realNumberArray);
+console.log(squaredIntegers);
